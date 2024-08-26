@@ -38,10 +38,9 @@ console.log(paul);
 //   .catch( ( err ) => console.log( err ) )
 //   .finally( () => console.log('Finalmente') );
 
-const { buildLoger } = require('../plugins');
+const { buildLogger } = require('./plugins');
 
-const logger = buildLoger('app.js');
+const logger = buildLogger('app.js');
 logger.log('hola mundo');
 logger.error('esto es algo malo');
-
 console.log('hola mundo');
