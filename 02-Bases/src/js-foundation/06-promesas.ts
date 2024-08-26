@@ -27,20 +27,27 @@
 // module.exports = {
 //   getPokemonById,
 // };
-
-const { http } = require('../plugins');
+import { getHttpClientPlugin as http } from '../plugins/http-client-plugin';
+// const { http } = require('../plugins');
 
 export const getPokemonById = async (id: string | number): Promise<string> => {
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
 
-  const pokemon = await http.get(url);
+  try {
+    const pokemon = await http.get(url);
+    return pokemon.data.name;
+  } catch (error) {
+    console.log(error);
+    return `with id:${id} not found pokemon`;
+  }
+  // const pokemon = await http.get(url);
 
   // const resp = await fetch( url );
   // const pokemon = await resp.json();
 
   // throw new Error('Pokemon no existe');
 
-  return pokemon.name;
+  // return pokemon.data.name;
 
   // return fetch( url )
   //   .then( ( resp ) => resp.json())
