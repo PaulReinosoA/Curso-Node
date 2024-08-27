@@ -2,6 +2,7 @@ import {
   buildLogger,
   logger as winstonLogger,
 } from '../../plugins/loger.plugin';
+
 describe('pruebas sobre loger.plugin.ts', () => {
   test('  debe de retornar las funciones de loger ', () => {
     const loger = buildLogger('test');

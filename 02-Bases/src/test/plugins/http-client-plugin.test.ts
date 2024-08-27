@@ -9,9 +9,8 @@ describe('preubas sobre http-client-plugin.ts', () => {
     // console.log(pokemon.data);
     expect(typeof name).toBe('string');
 
-    expect(pokemon).toContainEqual({
+    expect({ name: pokemon.data.name }).toEqual({
       name: 'bulbasaur',
-      url: 'https://pokeapi.co/api/v2/pokemon-form/1/',
     });
   });
 
