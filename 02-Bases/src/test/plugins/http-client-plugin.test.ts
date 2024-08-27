@@ -1,4 +1,5 @@
 import { getHttpClientPlugin as http } from '../../plugins/http-client-plugin';
+
 describe('preubas sobre http-client-plugin.ts', () => {
   const id = 1;
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
