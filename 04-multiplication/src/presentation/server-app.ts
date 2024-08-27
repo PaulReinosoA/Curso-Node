@@ -7,11 +7,13 @@ interface RunOption {
   base: number;
   limit: number;
   showTable: boolean;
+  name: string;
+  destination: string;
 }
 
 export class ServerApp {
   // static --> hace que no necesite inicializar la clase
-  static run({ base, limit, showTable }: RunOption) {
+  static run({ base, limit, showTable, name, destination }: RunOption) {
     console.log('Server corriendo...');
     const table = new CreateTable().execute({ base, limit });
     const fileWasCreated = new SaveFile().execute({
