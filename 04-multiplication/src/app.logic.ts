@@ -3,7 +3,7 @@ import { yarg } from './config/plugins/args.plugins';
 
 const { b:base, l:limit, s:showTable } = yarg;
 
-const path: string = `C:/Users/Washington.Reinoso/Documents/GitHub/Curso-Node/04-multiplication/outputs`;
+const path: string = `outputs`;
 
 const escribirCabecera = (numero: number) => {
   const cabecera: string = `
