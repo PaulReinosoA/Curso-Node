@@ -14,3 +14,6 @@ async function main() {
 
   ServerApp.run({ base, limit, showTable, name, destination });
 }
+
+// ejecucion
+//* npx ts-node src/app.ts -b=12 -s -l=50 -n=tablePrameter -d=outputs2

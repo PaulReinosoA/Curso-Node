@@ -18,7 +18,8 @@ export class ServerApp {
     const table = new CreateTable().execute({ base, limit });
     const fileWasCreated = new SaveFile().execute({
       fileContent: table,
-      fileName: `MltpTable-${base}`,
+      fileName: `${name}-${base}`,
+      destination,
     });
 
     if (showTable) console.log(table);
