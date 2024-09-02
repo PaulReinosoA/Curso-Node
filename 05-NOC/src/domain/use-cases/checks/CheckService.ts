@@ -29,3 +29,18 @@ export class CheckService implements CheckServiceUseCase {
 // npm i json-server --> servicis de api --> https://www.npmjs.com/package/json-server
 // monatmos un servidor para hahcer prototipos o purebas crud rapido
 // para probar
+
+
+
+For i = 0 To WScript.Arguments.Count - 1
+
+    If WScript.Arguments.Named.Exists(i) Then
+      str_Fichero = WScript.Arguments.Named(i)	
+      WScript.Echo "Error 1: Argumentos requeridos incompletos!"
+      WScript.Quit 1
+    End If
+
+Next 'i
+
+
+
