@@ -1,0 +1,36 @@
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:28:30.122Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:28:35.013Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:28:40.014Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:28:45.011Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:28:50.011Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:28:55.008Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:29:00.017Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:29:05.014Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:29:10.018Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:29:15.015Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:29:20.013Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:29:25.009Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:29:30.011Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:29:35.016Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:29:40.008Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:29:45.011Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:29:50.008Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:29:55.106Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:30:00.123Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:30:05.117Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:30:10.017Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:30:15.017Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:30:20.010Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:30:25.009Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:30:30.017Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:30:35.177Z"}
+{"message":"TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:30:40.021Z"}
+{"message":"CheckService: https://localhost:3000 is not ok!, TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:30:45.168Z"}
+{"message":"CheckService: https://localhost:3000 is not ok!, TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:30:50.017Z"}
+{"message":"CheckService: https://localhost:3000 is not ok!, TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:30:55.011Z"}
+{"message":"CheckService: https://localhost:3000 is not ok!, TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:40:20.190Z"}
+{"message":"CheckService: https://localhost:3000 is not ok!, TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:41:03.518Z"}
+{"message":"CheckService: https://localhost:3000 is not ok!, TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:41:34.898Z"}
+{"message":"CheckService: https://localhost:3000 is not ok!, TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:41:35.012Z"}
+{"message":"CheckService: https://localhost:3000 is not ok!, TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:41:40.022Z"}
+{"message":"CheckService: https://localhost:3000 is not ok!, TypeError: fetch failed","level":"high","createdAt":"2024-09-02T15:41:45.013Z"}

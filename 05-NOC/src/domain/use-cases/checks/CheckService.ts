@@ -1,12 +1,16 @@
+import { LogEntity, LogSeverityLevel } from '../../entities/log.entity';
+import { LogRepository } from '../../repository/log.repository';
+
 interface CheckServiceUseCase {
   execute(url: string): Promise<boolean>;
 }
-
-type SuccessCallback = () => void;
-type ErrorCallback = (error: string) => void;
+// para que bsean opcionales usmaos-->  | undefined
+type SuccessCallback = (() => void) | undefined;
+type ErrorCallback = ((error: string) => void) | undefined;
 
 export class CheckService implements CheckServiceUseCase {
   constructor(
+    private readonly logRepository: LogRepository,
     private readonly successCallback: SuccessCallback,
     private readonly errorCallback: ErrorCallback
   ) {}
@@ -16,11 +20,21 @@ export class CheckService implements CheckServiceUseCase {
       const respuesta = await fetch(url);
       if (!respuesta.ok) throw new Error(`error en servicio: ${url}`);
       // console.log(`${url} is ok`);
-      this.successCallback();
+
+      const log = new LogEntity(
+        `Service ${url}, working`,
+        LogSeverityLevel.low
+      );
+      this.logRepository.saveLog(log);
+      this.successCallback && this.successCallback();
       return true;
     } catch (error) {
       // console.log(`CheckService/fetch: ${url} : ${error}`);
-      this.errorCallback(`CheckService/fetch: ${url} : ${error}`);
+      const errorMessage = `CheckService: ${url} is not ok!, ${error}`;
+      const log = new LogEntity(errorMessage, LogSeverityLevel.high);
+      this.logRepository.saveLog(log);
+
+      this.errorCallback &&  this.errorCallback(`CheckService: ${url} is not ok! : ${errorMessage}`);
       return false;
     }
   }
@@ -29,18 +43,3 @@ export class CheckService implements CheckServiceUseCase {
 // npm i json-server --> servicis de api --> https://www.npmjs.com/package/json-server
 // monatmos un servidor para hahcer prototipos o purebas crud rapido
 // para probar
-
-
-
-For i = 0 To WScript.Arguments.Count - 1
-
-    If WScript.Arguments.Named.Exists(i) Then
-      str_Fichero = WScript.Arguments.Named(i)	
-      WScript.Echo "Error 1: Argumentos requeridos incompletos!"
-      WScript.Quit 1
-    End If
-
-Next 'i
-
-
-
