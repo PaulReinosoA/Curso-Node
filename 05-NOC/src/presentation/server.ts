@@ -60,5 +60,9 @@ export class Server {
 
     //   // new CheckService().execute('http://localhost:3000');
     // });
+
+    //conectando con mongo
+
+    
   }
 }

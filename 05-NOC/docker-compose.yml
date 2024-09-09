@@ -1,0 +1,18 @@
+#aqui va la configuracion para la composicion de docker:
+#la tabulacion es como en python  
+#esto al ejecutar crea un contenedor insertando la img de mongoDB
+#definimos los servicios a corre:
+version: '3.8'
+
+
+services:
+  mongo-db: # servicio a usar
+    image: mongo:6.0.6 # version del servicio modificable segun nuestro mongo
+    restart: always #cunado el docker se levante inmediatamente levante esta imagen
+    environment: #configuracion por defecto de mongo cunado se levante vienen de las env
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS}
+    volumes: #permite no eliminar la data al bajar la imagen pue la salva un archivo
+      - ./mongo:/data/db #crea un directorio en esta ruta
+    ports:
+      - 27017:27017 #usamos un puerto(por defecto de Docker on el de mi PC ) para comunicarnos el servicio/contenedor

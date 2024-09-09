@@ -10,4 +10,7 @@ dist/
 log/
 
 #varibles de entorno
-.emv
+.env
+
+#directorio mongo local 
+mongo/
