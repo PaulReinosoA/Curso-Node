@@ -8,6 +8,7 @@ DOCUMENTACION ARA USO DE DOCKER AQUI Y EN EL YML
 
 documentacion para uso de mongo en docker:
 # https://hub.docker.com/_/mongo
+--$ docker pull mongo
 
 ## levantar la img, Me da acceso a mi base de mongo con docker:
 
