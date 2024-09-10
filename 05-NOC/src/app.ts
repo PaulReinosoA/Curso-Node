@@ -28,6 +28,6 @@ async function main() {
   // console.log({ logs });
   // console.log(logs[1].message);
 
-  // Server.start();
+  Server.start();
   //console.log(envs);
 }
