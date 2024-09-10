@@ -1,17 +1,20 @@
-
-node_modules/
+#archivos de despliegue
 dist/
+
+#modulos de node
+node_modules/
 
 #logs
 .DS_Store
 
-
-#logs
-log/
-
 #varibles de entorno
 .env
+
+#logs
+logs/
 
 #directorio mongo local 
 mongo/
 
+#directorio postgres local 
+postgres/

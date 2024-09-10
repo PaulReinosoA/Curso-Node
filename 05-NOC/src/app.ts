@@ -14,7 +14,7 @@ async function main() {
     dbName: envs.MONGO_DB_NAME,
   });
 
-  // Graba registro:
+  //* Mongo Graba registro:
   // const newLog = await LogModel.create({
   //   message: 'Test message desde mongo',
   //   origin: 'app.ts',
@@ -30,7 +30,7 @@ async function main() {
   // console.log(logs[1].message);
 
   //* PostgreSQL with Prisma
-  const prisma = new PrismaClient();
+  // const prisma = new PrismaClient();
   // const newLog = await prisma.logModel.create({
   //   data: {
   //     level: 'low',
@@ -38,9 +38,9 @@ async function main() {
   //     origin: 'app.ts',
   //   },
   // });
-  const logs = await prisma.logModel.findMany({ where: { level: 'low' } });
+  // const logs = await prisma.logModel.findMany({ where: { level: 'low' } });
 
-  console.log(logs);
+  // console.log(logs);
 
   Server.start();
   //console.log(envs);

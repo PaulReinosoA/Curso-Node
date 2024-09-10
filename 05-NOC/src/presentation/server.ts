@@ -6,12 +6,14 @@ import { envs } from '../config/plugins/envs.plugin';
 import { EmilService } from './email/email.service';
 import { SendEmailLogs } from '../domain/use-cases/email/send-email-logs';
 import { MongoLogDataSource } from '../infrastructure/dataSources/mongo-datasource';
+import { PostgresLogDataSource } from '../infrastructure/dataSources/postgres-log-dataSource';
 
 // Creo la instancia para enviar a todos los use cases que deban usar ese datasource
 // aqui es donde agrego mis origenes de datos ejmpl: FileSystemLogRepository(renombramos)logRepository
 const logRepository = new LogRepositoryImplementation(
   //new FileSystemDataSource()
-  new MongoLogDataSource()
+  //new MongoLogDataSource()
+  new PostgresLogDataSource()
 );
 // puede tambien llamarse de esta manera por los valores opcionales!
 // CheckService(FileSystemLogRepository,undefined,undefined)
@@ -51,17 +53,17 @@ export class Server {
     // ]);
 
     //funcionalidad  ciclica
-    // CronService.createJob('*/5 * * * * *', () => {
-    //   const url = 'https://google.com';
-    //   new CheckService(
-    //     logRepository,
-    //     // inyeccion de dependencias
-    //     () => console.log(`${url}, is ok`),
-    //     (error) => console.log(error)
-    //   ).execute(url);
+    CronService.createJob('*/5 * * * * *', () => {
+      const url = 'https://google.com';
+      new CheckService(
+        logRepository,
+        // inyeccion de dependencias
+        () => console.log(`${url}, is ok`),
+        (error) => console.log(error)
+      ).execute(url);
 
-    //   // new CheckService().execute('http://localhost:3000');
-    // });
+      // new CheckService().execute('http://localhost:3000');
+    });
 
     //conectando con mongo
   }
