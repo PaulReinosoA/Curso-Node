@@ -9,6 +9,8 @@ DOCUMENTACION ARA USO DE DOCKER AQUI Y EN EL YML
 documentacion para uso de mongo en docker:
 # https://hub.docker.com/_/mongo
 --$ docker pull mongo
+(postgres): 
+--$ docker pull postgres
 
 ## levantar la img, Me da acceso a mi base de mongo con docker:
 
@@ -28,3 +30,10 @@ borramos la imagen de mongo(aqui SI no quita la imagen de mongo)mongo
 
 ## PERMITE USAR LOS METODOS DE MONGO
 https://mongoosejs.com/
+
+
+# el ORM  a usar sera prisma:
+
+--> https://www.prisma.io/docs/getting-started/quickstar
+
+

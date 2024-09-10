@@ -4,7 +4,7 @@
 
 import { LogEntity, LogSeverityLevel } from '../entities/log.entity';
 
-// qui pondremos los origenes de datos!!
+// aqui pondremos los origenes de datos!!
 // implementacion de reglas de negocio todos los datasources debe complir esto!
 export abstract class LogDataSource {
   abstract saveLog(log: LogEntity): Promise<void>;

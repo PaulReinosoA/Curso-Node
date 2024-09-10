@@ -27,6 +27,7 @@ export class LogEntity {
 
   //* static me permite llamar a este metodo sin instanciar la clase!!
   static fromJson = (json: string): LogEntity => {
+    json = json === '' ? '{}' : json;
     const { level, message, createdAt, origin } = JSON.parse(json);
     if (!message) throw new Error('message not exist');
     const log = new LogEntity({

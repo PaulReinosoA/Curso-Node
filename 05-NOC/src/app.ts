@@ -1,3 +1,4 @@
+import { PrismaClient } from '@prisma/client';
 import { Server } from '../src/presentation/server';
 import { envs } from './config/plugins/envs.plugin';
 import { LogModel } from './data/mongo';
@@ -27,6 +28,19 @@ async function main() {
   // const logs = await LogModel.find();
   // console.log({ logs });
   // console.log(logs[1].message);
+
+  //* PostgreSQL with Prisma
+  const prisma = new PrismaClient();
+  // const newLog = await prisma.logModel.create({
+  //   data: {
+  //     level: 'low',
+  //     message: 'Create log PostgreSQL with Prisma2',
+  //     origin: 'app.ts',
+  //   },
+  // });
+  const logs = await prisma.logModel.findMany({ where: { level: 'low' } });
+
+  console.log(logs);
 
   Server.start();
   //console.log(envs);
