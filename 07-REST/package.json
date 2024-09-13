@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@types/express": "^4.17.21",
     "@types/node": "^22.5.4",
     "rimraf": "^6.0.1",
     "ts-node-dev": "^2.0.0",
@@ -30,6 +31,7 @@
     "dynamic-dedupe": "^0.3.0",
     "eastasianwidth": "^0.2.0",
     "emoji-regex": "^9.2.2",
+    "express": "^4.21.0",
     "fill-range": "^7.1.1",
     "foreground-child": "^3.3.0",
     "fs.realpath": "^1.0.0",
