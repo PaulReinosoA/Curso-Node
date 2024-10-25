@@ -22,6 +22,8 @@ export class Server {
 
   async start() {
     //* Middlewares
+    //parseamos la info del body a un json con este Middleware
+    this.app.use(express.json());
 
     //* Public Folder
     this.app.use(express.static(this.publicPath));
