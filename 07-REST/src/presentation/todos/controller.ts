@@ -21,8 +21,13 @@ export class TodosController {
    * getTodoById
    */
   public getTodoById = (req: Request, res: Response) => {
-    const id = req.params.id;
-    console.log(id, 10);
-    res.json({ id });
+    const id = +req.params.id; //el operdor =+ hace l conversion de string  entero por mi
+
+    if(isNaN(id)) return res.status(400).json({ errorMessage: `error with id: ${id}` });
+
+    const todo = todos.find((todo) => todo.id === id);
+    todo
+      ? res.status(200).json(todo)
+      : res.status(404).json({ errorMessage: `error with id:${id} not found` });
   };
 }

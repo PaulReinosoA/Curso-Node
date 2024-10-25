@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import { TodosController } from './controller';
 
-
 export class TodoRoutes {
   constructor() {}
 
@@ -16,3 +15,6 @@ export class TodoRoutes {
     return router;
   }
 }
+
+
+ 
