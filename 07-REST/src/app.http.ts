@@ -1,43 +1,30 @@
-import fs from 'fs';
 import http from 'http';
+import * as fs from 'fs';
 
+// const server = http.createServer((req, resp) => {
+//   console.log(req.url);
+//   resp.writeHead(200,'content-type: text/html');
+//   resp.write('<h1>Hola mundo desde servidor</h1>');
+//   resp.end();
+// });
 
-const server = http.createServer((req, res) => {
+// server.listen(8080, () => {
+//   console.log('server Online in port : 8080');
+// });
 
-  console.log(req.url);
-
-  // res.writeHead(200, { 'Content-Type': 'text/html' });
-  // res.write(`<h1>URL ${ req.url }</h1>`);
-  // res.end();
-
-  // const data = { name: 'John Doe', age: 30, city: 'New York' };
-  // res.writeHead(200, { 'Content-Type': 'application/json' });
-  // res.end( JSON.stringify(data) );
-
-  if ( req.url === '/' ) {
-    const htmlFile = fs.readFileSync('./public/index.html','utf-8');
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.end( htmlFile );
-    return;
-  } 
-
-  
-  if ( req.url?.endsWith('.js') ) {
-    res.writeHead(200, { 'Content-Type': 'application/javascript' });
-  } else if( req.url?.endsWith('.css')) {
-    res.writeHead(200, { 'Content-Type': 'text/css' });
+const server = http.createServer((req, resp) => {
+  const content = fs.readFileSync('./public/index.html', 'utf-8');
+  if (req.url === '/') {
+    resp.writeHead(200, 'content-type: index/html');
+    resp.write(content);
+    resp.end();
+  } else {
+    resp.writeHead(404, 'content-type: index/html');
+    resp.end();
   }
-
-  const responseContent = fs.readFileSync(`./public${ req.url }`,'utf-8');
-  res.end(responseContent);
-
-
-
-
 });
 
-
-
 server.listen(8080, () => {
-  console.log('Server running on port 8080');
-})
+  console.log('server Online in port : 8080');
+});
+

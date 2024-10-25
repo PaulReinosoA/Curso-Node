@@ -7,12 +7,17 @@ import { EmilService } from './email/email.service';
 import { SendEmailLogs } from '../domain/use-cases/email/send-email-logs';
 import { MongoLogDataSource } from '../infrastructure/dataSources/mongo-datasource';
 import { PostgresLogDataSource } from '../infrastructure/dataSources/postgres-log-dataSource';
+import { CheckServiceMultiple } from '../domain/use-cases/checks/CheckServiceMultiple';
 
 // Creo la instancia para enviar a todos los use cases que deban usar ese datasource
 // aqui es donde agrego mis origenes de datos ejmpl: FileSystemLogRepository(renombramos)logRepository
-const logRepository = new LogRepositoryImplementation(
-  //new FileSystemDataSource()
-  //new MongoLogDataSource()
+const fileSystemlogRepository = new LogRepositoryImplementation(
+  new FileSystemDataSource()
+);
+const mongologRepository = new LogRepositoryImplementation(
+  new MongoLogDataSource()  
+);
+const postgreslogRepository = new LogRepositoryImplementation(  
   new PostgresLogDataSource()
 );
 // puede tambien llamarse de esta manera por los valores opcionales!
@@ -55,8 +60,9 @@ export class Server {
     //funcionalidad  ciclica
     CronService.createJob('*/5 * * * * *', () => {
       const url = 'https://google.com';
-      new CheckService(
-        logRepository,
+      new CheckServiceMultiple(
+        [fileSystemlogRepository,mongologRepository,postgreslogRepository],
+
         // inyeccion de dependencias
         () => console.log(`${url}, is ok`),
         (error) => console.log(error)
