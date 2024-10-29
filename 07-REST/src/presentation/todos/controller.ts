@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { prisma } from '../../data/postgres';
 import { CreateTodoDto, UpdateTodoDto } from '../../domain/DTOs';
+import { TodoRepository } from '../../domain';
 
 // const todos = [
 //   { id: 1, text: 'buy milk', completedAt: new Date() },
@@ -10,13 +11,16 @@ import { CreateTodoDto, UpdateTodoDto } from '../../domain/DTOs';
 
 export class TodosController {
   //*DI
-  constructor() {}
+  //*podria enviar el TodoRepositoryImp pero eso haria que necesite enviar esa implementacion especifica y yo quiero podr cambiar a cualquier otra
+  constructor(private readonly todoRepository: TodoRepository) {}
 
   /**
    *   getTodos
    **/
   public getTodos = async (req: Request, res: Response): Promise<any> => {
-    const todos = await prisma.todo.findMany();
+    const todos = await this.todoRepository.getAll();
+    if (!todos)
+      return res.status(400).json({ message: 'error todos not found!' });
     return res.status(200).json(todos);
   };
 
