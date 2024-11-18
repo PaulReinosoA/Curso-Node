@@ -21,9 +21,16 @@ example:
 Utilice compresión gzip
 La compresión Gzip puede reducir considerablemente el tamaño del cuerpo de la respuesta y, por lo tanto, aumentar la velocidad de una aplicación web. Utilice el middleware de compresión para la compresión Gzip en su aplicación Express. Por ejemplo:
 
+=> ayuda a minimizar la respuestas!
+
+=> simepre usar promesas
+
+=> simepre usar try..
+
 ### Ej:
 
 $ const compression = require('compression')
 $ const express = require('express')
 $ const app = express()
 $ app.use(compression())
+
