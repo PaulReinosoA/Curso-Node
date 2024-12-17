@@ -10,6 +10,19 @@ Documentacion: prisma
 api rest para obtener datos de un fetch:
 https://www.prisma.io/
 
+### =============> instalacion de .env 
+
+$ npm install prisma --save-dev
+
+$ npx prisma init --datasource-provider PostgreSQL
+
+$ docker pull postgres
+
+$ npx prisma migrate dev --name init
+
+### =============> fin instalacion de .env 
+
+
 ## Jist: Production best practices: performance and reliability
 
 ### Express:

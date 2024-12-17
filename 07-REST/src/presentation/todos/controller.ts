@@ -37,9 +37,6 @@ export class TodosController {
   public getTodoById = (req: Request, res: Response) => {
     const id = +req.params.id; //el operdor =+ hace l conversion de string  entero por mi
 
-    if (isNaN(id))
-      return res.status(400).json({ errorMessage: `error with id: ${id}` });
-
     new GetTodo(this.todoRepository)
       .excute(id)
       .then((todo) => res.status(200).json(todo))
@@ -49,18 +46,11 @@ export class TodosController {
   /**
    *  createTodo
    **/
-  public createTodo = async (req: Request, res: Response): Promise<any> => {
-    //const { text } = req.body;
-
+  public createTodo = (req: Request, res: Response) => {
     const [error, createTodoDto] = CreateTodoDto.create(req.body);
 
-    if (!createTodoDto?.text)
-      return res.status(400).json({ errorMessage: `error text not found` });
-
-    if (error) return res.status(400).json({ error });
-
     new CreateTodo(this.todoRepository)
-      .excute(createTodoDto)
+      .excute(createTodoDto!)
       .then((todo) => res.status(200).json(todo))
       .catch((error) => res.status(400).json(error));
   };
@@ -68,12 +58,10 @@ export class TodosController {
   /**
    *   updateTodo
    **/
-  public updateTodo = async (req: Request, res: Response): Promise<any> => {
-    const id = +req.params.id; //el operdor =+ hace l conversion de string  entero por mi
+  public updateTodo = (req: Request, res: Response) => {
+    const id = +req.params.id;
 
     const [error, updateTodoDto] = UpdateTodoDto.update({ ...req.body, id });
-
-    if (error) return res.status(400).json({ error });
 
     new UpdateTodo(this.todoRepository)
       .excute(updateTodoDto!)
@@ -84,10 +72,8 @@ export class TodosController {
   /**
    *   deleteTodo
    **/
-  public deleteTodo = async (req: Request, res: Response): Promise<any> => {
+  public deleteTodo = (req: Request, res: Response) => {
     const id = +req.params.id; //el operdor =+ hace l conversion de string  entero por mi
-    if (isNaN(id))
-      return res.status(400).json({ errorMessage: `error with id: ${id}` });
 
     new DeleteTodo(this.todoRepository)
       .excute(id!)
