@@ -1,5 +1,4 @@
 export class TodoEntity {
-
   constructor(
     public id: number,
     public text: string,
@@ -13,10 +12,12 @@ export class TodoEntity {
     return !!this.completedAt;
   }
 
+  
+
   /**
    * fromObject
    */
-  public static fromObject(object: { [key: string]: any }):TodoEntity {
+  public static fromObject(object: { [key: string]: any }): TodoEntity {
     const { id, text, completedAt } = object;
     if (!id) throw new Error('Id is required');
     if (!text) throw new Error('Text is required');
